@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        background-color: grey;
+    }
+    
+    #gameOfLifeCanvas{
+        background-color: white;
+        margin: auto;
+    }
+
+    .pause{
+        display: block;
+        width: 250px;
+        height: 250px;
+        font-size: 75px;
+        color: whitesmoke;
+        background-color: rgb(71, 71, 71);
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <canvas id="gameOfLifeCanvas" style="border: 1px solid black " width="1000" height="1000">
+    </canvas>
+    <button class="pause" onclick="pause()">PAUSE</button>
+</body>
+<script src="./gameOfLife.js"></script>
+</html>
