@@ -43,7 +43,7 @@ function hover(event){
         context.fillStyle = "rgba(0,0,0,0.4)";
         context.fillRect(x,y,10,10);
     }
-    
+
     lastHoveredOver = pack(x,y);
 }
 
@@ -66,13 +66,17 @@ function addCell(event){
     lastHoveredOver = pack(1000,1000);
 }
 
-function pause(setIntervalID){
+function pause(){
     if(!paused){
-        window.clearInterval(setIntervalID);
+        window.clearInterval(animation);
         paused = !paused;
+        pauseButton[0].style.background = "darkred";
+        pauseButton[0].innerHTML = "RUN";
     } else{
-        window.setInterval(animate, 100);
+        animation = window.setInterval(animate, 100);
         paused = !paused;
+        pauseButton[0].style.background = "green";
+        pauseButton[0].innerHTML = "PAUSE";
     }
 }
 
@@ -188,4 +192,6 @@ gameOfLife.cells.forEach(value => value.birth());
 let animation = window.setInterval(animate, 100); 
 canvas.addEventListener("mousemove", event => hover(event));
 canvas.addEventListener("mouseout", event => clearLastHover(event));
-canvas.addEventListener("click", event => addCell(event));
+canvas.addEventListener("click", event => {
+    addCell(event);
+});
